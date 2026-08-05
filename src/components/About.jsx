@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import MagneticButton from './ui/MagneticButton'
-import { fadeUp, imageReveal, viewportOnce } from '../lib/motion'
+import { fadeUp, imageReveal } from '../lib/motion'
 
 export default function About() {
   return (
@@ -9,8 +9,7 @@ export default function About() {
         <motion.div
           variants={imageReveal}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
+          animate="visible"
           className="relative rounded-card overflow-hidden shadow-lift"
         >
           <img
@@ -31,8 +30,7 @@ export default function About() {
         <motion.div
           variants={fadeUp}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
+          animate="visible"
           className="flex flex-col gap-6"
         >
           <span className="eyebrow">About Tawar PG &amp; Boys Hostel</span>
