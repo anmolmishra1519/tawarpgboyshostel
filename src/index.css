@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html.lenis {
+    height: auto;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Clash Display', serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: #C8A45C;
+    color: #F9F8F6;
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C8A45C;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-button text-xs md:text-sm tracking-[0.25em] uppercase text-gold font-medium;
+  }
+
+  .btn-gold {
+    @apply relative inline-flex items-center justify-center gap-2 font-button font-medium text-sm sm:text-base
+      rounded-pill bg-gold text-ink px-6 py-3.5 sm:px-8 sm:py-4 shadow-soft
+      transition-all duration-300 ease-out
+      hover:bg-gold-hover hover:shadow-gold-glow hover:-translate-y-0.5
+      active:translate-y-0 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply relative inline-flex items-center justify-center gap-2 font-button font-medium text-sm sm:text-base
+      rounded-pill border border-ink/20 text-ink px-6 py-3.5 sm:px-8 sm:py-4
+      transition-all duration-300 ease-out
+      hover:border-gold hover:text-gold hover:-translate-y-0.5;
+  }
+
+  .section-container {
+    @apply max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  .card-luxury {
+    @apply rounded-card border border-border bg-white/70 backdrop-blur-xs shadow-soft
+      transition-all duration-500 ease-out hover:shadow-lift hover:-translate-y-1;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
